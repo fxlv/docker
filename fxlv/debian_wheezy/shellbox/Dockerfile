@@ -1,8 +1,7 @@
-FROM fxlv/wheezy
+FROM fxlv/debian_wheezy
 MAINTAINER kaspars@fx.lv
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && \
-    apt-get -y upgrade && \
-    apt-get -y --no-install-recommends install bzip2 curl bc most dstat ipython  && \
+RUN apt-get update && apt-get -y upgrade
+RUN apt-get -y install procps htop bzip2 curl wget nmap bc most dstat ipython tmux strace && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
